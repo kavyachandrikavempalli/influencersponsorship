@@ -30,7 +30,7 @@ public class CreateOfferRequest {
         return moneyAmount;
     }
 
-    public void setMoneyAmount(){
+    public void setMoneyAmount(Double moneyAmount){
         this.moneyAmount=moneyAmount;
     }
     

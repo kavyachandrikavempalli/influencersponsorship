@@ -19,20 +19,16 @@ public class OfferController {
         this.offerService = offerService;
     }
 
-    // POST /offers
     @PostMapping
     public Offer create(@RequestBody CreateOfferRequest request) {
         return offerService.create(request);
     }
 
-    // PATCH /offers/{id}
     @PatchMapping("/{id}")
     public Offer patch(@PathVariable Long id, @RequestBody PatchOfferRequest request) {
         return offerService.patchOffer(id, request);
     }
 
-    // GET /offers?influencerId=... or /offers?brandId=...
-    // plus pagination/sorting: page, size, sort
     @GetMapping
     public Page<Offer> getOffers(
             @RequestParam(required = false) Long influencerId,

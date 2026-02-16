@@ -18,20 +18,16 @@ public class InfluencerController {
         this.influencerService = influencerService;
     }
 
-    // POST /influencers
     @PostMapping
     public Influencer create(@RequestBody CreateInfluencerRequest request) {
         return influencerService.create(request);
     }
 
-    // GET /influencers?page=&size=&sort=
     @GetMapping
     public Page<Influencer> getAll(@PageableDefault(size = 10) Pageable pageable) {
         return influencerService.getAll(pageable);
     }
 
-    // Optional but useful:
-    // GET /influencers/{id}
     @GetMapping("/{id}")
     public Influencer getById(@PathVariable Long id) {
         return influencerService.getById(id);

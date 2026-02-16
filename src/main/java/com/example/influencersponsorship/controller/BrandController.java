@@ -18,20 +18,16 @@ public class BrandController {
         this.brandService = brandService;
     }
 
-    // POST /brands
     @PostMapping
     public Brand create(@RequestBody CreateBrandRequest request) {
         return brandService.create(request);
     }
 
-    // GET /brands?page=&size=&sort=
     @GetMapping
     public Page<Brand> getAll(@PageableDefault(size = 10) Pageable pageable) {
         return brandService.getAll(pageable);
     }
 
-    // Optional but useful:
-    // GET /brands/{id}
     @GetMapping("/{id}")
     public Brand getById(@PathVariable Long id) {
         return brandService.getById(id);
